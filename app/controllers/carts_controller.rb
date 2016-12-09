@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
 
   def show
+    p "CARRTTTTTTTTT!!!!!!!", cart.length
   end
 
   def add_item
@@ -25,5 +26,10 @@ class CartsController < ApplicationController
 
     redirect_to :back
   end
+
+  def empty?
+    cart.length == 0
+  end
+
 
 end
