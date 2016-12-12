@@ -3,6 +3,9 @@
   <td>
     <h2><%= review.user.first_name %>' Review Time!</h2>
   </td>
+  <% if current_user && current_user.id == review.user.id %>
+  <h5><%= link_to "Delete", [review.product, review], method: :delete, data: { confirm: 'Are you sure?'} %></h5>
+  <% end %>
   <td>
     <h4><%= review.description %></h4>
     <br>

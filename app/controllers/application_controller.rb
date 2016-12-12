@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def require_login
+    unless session[:user_id]
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to '/login' # halts request cycle
+    end
+  end
+
+
   def cart
     # value = cookies[:cart] || JSON.generate({})
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
