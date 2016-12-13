@@ -5,6 +5,6 @@ class UserMailer < ApplicationMailer
     @order = order
     @user = 'ckwjdals90@gmail.com'
     @url  = 'http://localhost:3000/login'
-    mail(to: @user, subject: 'Thank you for shopping with us!')
+    mail(to: @user, subject: "Order Confirmation for: # @order.id Thank you for shopping with us!")
   end
 end
