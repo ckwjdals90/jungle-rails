@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+  before_action :require_login, :only => :create
+
   def show
     @order = Order.find(params[:id])
   end
@@ -7,7 +9,6 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
-
     if order.valid?
       empty_cart!
       UserMailer.order_confirmation_email(order).deliver_later
