@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
 
   def show
-    p "CARRTTTTTTTTT!!!!!!!", cart.length
     @empty = cart.length == 0
   end
 
