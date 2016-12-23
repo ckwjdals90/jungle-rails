@@ -15,4 +15,7 @@ class Product < ActiveRecord::Base
     @quantity == 0
   end
 
+  def review_avarage
+    self.reviews.average(:rating)
+  end
 end

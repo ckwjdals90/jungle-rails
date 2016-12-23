@@ -37,6 +37,8 @@
     <% end %>
     <div class="row">
       <h2 class="ld-horizontal">
+        <dt>Average rating??</dt>
+        <%= @product.review_avarage %>
         <dt>What some reviews??</dt>
         <%= render partial:'review', collection: @product.reviews.sort_by(&:created_at).reverse %>
     </div>
